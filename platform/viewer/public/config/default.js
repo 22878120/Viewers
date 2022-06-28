@@ -7,14 +7,30 @@ window.config = {
   // filterQueryParam: false,
   dataSources: [
     {
+      // friendlyName: 'dcmjs DICOMWeb Server',
+      // namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
+      // sourceName: 'dicomweb',
+      // configuration: {
+      //   name: 'DCM4CHEE',
+      //   wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
+      //   qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
+      //   wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
+      //   qidoSupportsIncludeField: true,
+      //   supportsReject: true,
+      //   imageRendering: 'wadors',
+      //   thumbnailRendering: 'wadors',
+      //   enableStudyLazyLoad: true,
+      //   supportsFuzzyMatching: true,
+      //   supportsWildcard: true,
+
       friendlyName: 'dcmjs DICOMWeb Server',
       namespace: '@ohif/extension-default.dataSourcesModule.dicomweb',
       sourceName: 'dicomweb',
       configuration: {
-        name: 'DCM4CHEE',
-        wadoUriRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/wado',
-        qidoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
-        wadoRoot: 'https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs',
+        name: 'DICOMWEB_PACS',
+        wadoUriRoot: 'http://localhost:5001/wado',
+        qidoRoot: 'http://localhost:5001/viewer/rs',
+        wadoRoot: 'http://localhost:5001/viewer/rs',
         qidoSupportsIncludeField: true,
         supportsReject: true,
         imageRendering: 'wadors',
@@ -46,25 +62,25 @@ window.config = {
     // Could use services manager here to bring up a dialog/modal if needed.
     console.warn('test, navigate to https://ohif.org/');
   },
-  // whiteLabeling: {
-  //   /* Optional: Should return a React component to be rendered in the "Logo" section of the application's Top Navigation bar */
-  //   createLogoComponentFn: function (React) {
-  //     return React.createElement(
-  //       'a',
-  //       {
-  //         target: '_self',
-  //         rel: 'noopener noreferrer',
-  //         className: 'text-purple-600 line-through',
-  //         href: '/',
-  //       },
-  //       React.createElement('img',
-  //         {
-  //           src: './customLogo.svg',
-  //           className: 'w-8 h-8',
-  //         }
-  //       ))
-  //   },
-  // },
+
+  whiteLabeling: {
+    /* Optional: Should return a React component to be rendered in the "Logo" section of the application's Top Navigation bar */
+    createLogoComponentFn: function(React) {
+      return React.createElement(
+        'a',
+        {
+          target: '_self',
+          rel: 'noopener noreferrer',
+          className: 'text-purple-600 line-through',
+          href: '/',
+        },
+        React.createElement('img', {
+          src: './customLogo.svg',
+          className: 'w-8 h-8',
+        })
+      );
+    },
+  },
   defaultDataSourceName: 'dicomweb',
   hotkeys: [
     {

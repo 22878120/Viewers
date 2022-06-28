@@ -1,0 +1,26 @@
+Config file
+./Viewers/platform/viewer/public/config/default.js
+
+
+To connect to another wado service:
+
+     const dicomweb_serverConfig = {
+        routerBasename: "/ohif",
+        rootUrl: "http://localhost:2016/ohif",
+        servers: {
+          "dicomWeb": [
+            {
+              "name": "dicomweb_server",
+              "wadoUriRoot": "http://localhost:5985",
+              "qidoRoot": "http://localhost:5985",
+              "wadoRoot": "http://localhost:5985",
+              "qidoSupportsIncludeField": true,
+              "imageRendering": "wadouri",
+              "thumbnailRendering": "wadors",
+              "requestOptions": {
+                  "requestFromBrowser": true
+              }
+            },
+          ]
+        }
+      };
